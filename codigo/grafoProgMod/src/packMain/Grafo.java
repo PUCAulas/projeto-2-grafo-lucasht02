@@ -80,5 +80,9 @@ public class Grafo {
 		this.aresta.add(aresta);
 	}
 
-   public 
+   public void imprimirArestas() {
+		for (Aresta aresta : this.aresta) {
+			System.out.println(aresta);
+		} 
+   }
 }

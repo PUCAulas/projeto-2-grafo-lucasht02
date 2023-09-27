@@ -24,35 +24,36 @@
 //     }
 
 //     public void imprimeArestas(){
-        
+
 //     }
 // }
-
 
 package packMain;
 
 public class Vertice {
-  private static idProximo = 0;
-	private int id;
-	private String nome;
+    private static int idProximo = 0;
+    private int id;
+    private String nome;
 
-    public Vertice(String nome){
+    public Vertice(String nome) {
         this.setNome(nome);
         this.setId();
     }
-	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId() {
-		this.id = idProximo;
-       this.idProximo++;
-	}
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id = idProximo;
+        idProximo++;
+    }
 }

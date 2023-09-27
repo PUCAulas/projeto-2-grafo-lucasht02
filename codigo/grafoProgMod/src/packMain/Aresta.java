@@ -27,11 +27,14 @@ public class Aresta {
 	private int idDestino;
 	private int peso;
 
-    public Aresta(){
-        
-    }
+
 	
-	public int getIdOrigem() {
+	public Aresta(int idOrigem, int idDestino, int peso) {
+        this.idOrigem = idOrigem;
+        this.idDestino = idDestino;
+        this.peso = peso;
+    }
+    public int getIdOrigem() {
 		return idOrigem;
 	}
 	public void setIdOrigem(int idOrigem) {
