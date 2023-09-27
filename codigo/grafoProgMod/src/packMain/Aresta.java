@@ -1,3 +1,4 @@
+package PackMain;
 public class Aresta {
 
     private Vertice vertice; // guardando o vertice e mostrando para onde esta apontando
