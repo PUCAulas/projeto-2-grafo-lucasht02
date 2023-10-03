@@ -1,45 +1,33 @@
 package packMain;
 
-import java.util.Scanner;
-
 public class Main {
-
 	public static void main(String[] args) {
+		// Crie o grafo e adicione vértices e arestas como antes
 
-		Scanner input = new Scanner(System.in);
-		int opcaoSelecionda = 999;
+		Vertice vertice1 = new Vertice("Pedro");
+		Vertice vertice2 = new Vertice("Joao");
+		Vertice vertice3 = new Vertice("Carlos");
+
+		Aresta aresta = new Aresta(vertice1, vertice2, 3);
 
 		Grafo grafo = new Grafo();
+		grafo.addVertice(vertice1);
+		grafo.addVertice(vertice2);
+		grafo.addVertice(vertice3);
 
-		Vertice vertice = new Vertice("Pedro");
-		Vertice vertice2 = new Vertice("Joao");
+		grafo.addAresta(aresta);
 
-		Aresta aresta = new Aresta(0, 1, 3);
+		// Agora, use a classe BFS para verificar a existência de um caminho entre
+		// vértices
+		Vertice origem = vertice1;
+		Vertice destino = vertice3;
 
-		System.out.println("----------------------");
-		System.out.println("Selecione a opcao que deseja: ");
-		System.out.println(" 1 - Adicionar vertice\n 2 - Adicinar arestas \n 3 - Imprimir Grafo");
-		System.out.println("----------------------");
+		boolean existeCaminho = Bfs.existeCaminho(grafo, origem, destino);
 
-		opcaoSelecionda = input.nextInt();
-		while (opcaoSelecionda != 0) {
-			switch (opcaoSelecionda) {
-				case 1:
-					grafo.addVertice(vertice);
-					grafo.addVertice(vertice2);
-
-					break;
-
-				case 2:
-					grafo.addAresta(aresta);
-					break;
-
-				case 3:
-					grafo.imprimirArestas();
-					break;
-
-			}
+		if (existeCaminho) {
+			System.out.println("Existe um caminho entre " + origem.getNome() + " e " + destino.getNome());
+		} else {
+			System.out.println("Não existe um caminho entre " + origem.getNome() + " e " + destino.getNome());
 		}
 	}
-
 }
