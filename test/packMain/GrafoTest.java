@@ -20,7 +20,7 @@ public class GrafoTest {
     public void testAddAresta() {
         Grafo grafo = new Grafo();
         Vertice vertice1 = new Vertice("Pedro");
-        Vertice vertice2 = new Vertice("Joao");
+        Vertice vertice2 = new Vertice("Lucas");
         Aresta aresta = new Aresta(vertice1, vertice2, 3);
         grafo.addAresta(aresta);
 
