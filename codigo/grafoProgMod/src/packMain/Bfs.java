@@ -21,8 +21,25 @@ public class Bfs {
                     visitados.add(aresta.getDestino());
                 }
             }
-        }
+        } 
 
         return false;
+    }
+
+    public static List<Vertice> cidadesInalcancaveis(Grafo grafo) {
+        List<Vertice> cidadesInalcancaveis = new ArrayList<>();
+        for (Vertice destino : grafo.getVertices()) {
+            boolean alcancaDestino = false;
+            for (Vertice origem : grafo.getVertices()) {
+                if (origem != destino && existeCaminho(grafo, origem, destino)) {
+                    alcancaDestino = true;
+                    break;
+                }
+            }
+            if (!alcancaDestino) {
+                cidadesInalcancaveis.add(destino);
+            }
+        }
+        return cidadesInalcancaveis;
     }
 }
