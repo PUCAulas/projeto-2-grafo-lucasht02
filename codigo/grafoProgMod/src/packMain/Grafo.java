@@ -16,7 +16,7 @@ public class Grafo {
 	public void addVertice(Vertice vertice) {
 		this.vertices.add(vertice);
 	}
-
+	
 	public void addAresta(Aresta aresta) {
 		this.arestas.add(aresta);
 	}
