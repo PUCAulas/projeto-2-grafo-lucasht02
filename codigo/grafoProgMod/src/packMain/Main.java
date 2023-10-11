@@ -31,6 +31,7 @@ public class Main {
 		boolean existeCaminho = Bfs.existeCaminho(grafo, origem, destino);
 
 		List<Vertice> cidadesInalcancaveis = Bfs.cidadesInalcancaveis(grafo);
+		System.out.println(Bfs.percorrerGrafo(grafo));
 
 		if (cidadesInalcancaveis.isEmpty()) {
 			System.out.println("Todas cidades são alcançáveis");
