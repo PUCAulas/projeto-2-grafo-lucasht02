@@ -28,4 +28,6 @@ public class Grafo {
 	public List<Aresta> getArestas() {
 		return arestas;
 	}
+
+	
 }
