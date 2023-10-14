@@ -29,5 +29,12 @@ public class Grafo {
 		return arestas;
 	}
 
-	
+	public Vertice verificarSeVerticeJaExiste(String cidadeVertice) {
+		for(Vertice verticeJaExistente : this.vertices) {
+			if(verticeJaExistente.getNome().equals(cidadeVertice))
+				return verticeJaExistente;
+		}
+		return null;
+			
+	}
 }
