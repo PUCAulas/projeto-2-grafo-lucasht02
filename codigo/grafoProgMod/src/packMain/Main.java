@@ -104,7 +104,26 @@ public class Main {
 					System.out.println("Recomendação das cidades e estradas: " + Bfs.percorrerGrafo(grafo));
 					break;
 				case 4:
-					
+					System.out.print("Digite o nome da cidade de origem: ");
+					String nomeOrigemRota = scanner.next();
+					Vertice origemRota = encontrarVerticePorNome(grafo.getVertices(), nomeOrigemRota);
+
+					if (origemRota != null) {
+						List<Vertice> rotaMaisCurtaRota = encontrarRotaMaisCurta(grafo, origemRota);
+
+						if (!rotaMaisCurtaRota.isEmpty()) {
+							System.out.println(
+									"Recomendação de rota mais curta a partir de " + origemRota.getNome() + ":");
+							for (Vertice vertice : rotaMaisCurtaRota) {
+								System.out.println(vertice.getNome());
+							}
+						} else {
+							System.out.println("Não foi possível encontrar uma rota mais curta a partir de "
+									+ origemRota.getNome());
+						}
+					} else {
+						System.out.println("Cidade de origem não encontrada.");
+					}
 					break;
 				case 0:
 					System.out.println("Saindo...");
@@ -116,7 +135,6 @@ public class Main {
 		} while (opcao != 0);
 	}
 
-	
 	public static Vertice encontrarVerticePorNome(List<Vertice> vertices, String nome) {
 		for (Vertice vertice : vertices) {
 			if (vertice.getNome().equals(nome)) {
