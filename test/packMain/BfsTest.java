@@ -13,10 +13,12 @@ public class BfsTest {
         Vertice vertice2 = new Vertice("Joao");
         Vertice vertice3 = new Vertice("Carlos");
         Aresta aresta1 = new Aresta(vertice1, vertice2, 3);
+        Aresta aresta2 = new Aresta(vertice2, vertice3, 3); // Adicionando uma nova aresta entre João e Carlos
         grafo.addVertice(vertice1);
         grafo.addVertice(vertice2);
         grafo.addVertice(vertice3);
         grafo.addAresta(aresta1);
+        grafo.addAresta(aresta2); // Adicionando a nova aresta ao grafo
 
         Vertice origem = vertice1;
         Vertice destino = vertice3;
