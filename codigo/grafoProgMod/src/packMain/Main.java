@@ -57,52 +57,74 @@ public class Main {
 		} else {
 			System.out.println("Não foi possível encontrar uma rota mais curta.");
 		}
+
+		int opcao;
+		Scanner scanner = new Scanner(System.in);
+		do {
+			System.out.println("\nMENU:");
+			System.out.println("1. Verificar se existe estrada entre qualquer cidade");
+			System.out.println("2. Identificar cidades inalcançáveis");
+			System.out.println("3. Recomendação de visitação em todas as cidades e estradas");
+			System.out.println("4. Recomendação de rota mais curta");
+			System.out.println("0. Sair");
+			System.out.print("Escolha uma opção: ");
+			opcao = scanner.nextInt();
+
+			switch (opcao) {
+				case 1:
+					System.out.print("Digite o nome da cidade de origem: ");
+					String nomeOrigem = scanner.next();
+					System.out.print("Digite o nome da cidade de destino: ");
+					String nomeDestino = scanner.next();
+
+					Vertice origem = encontrarVerticePorNome(grafo.getVertices(), nomeOrigem);
+					Vertice destino = encontrarVerticePorNome(grafo.getVertices(), nomeDestino);
+
+					boolean existeCaminho = Bfs.existeCaminho(grafo, origem, destino);
+
+					if (existeCaminho) {
+						System.out.println("Existe um caminho entre " + origem.getNome() + " e " +
+								destino.getNome());
+					} else {
+						System.out.println("Não existe um caminho entre " + origem.getNome() + " e "
+								+ destino.getNome());
+					}
+					break;
+				case 2:
+					List<Vertice> cidadesInalcancaveis = Bfs.cidadesInalcancaveis(grafo);
+					if (cidadesInalcancaveis.isEmpty()) {
+						System.out.println("Todas cidades são alcanveis");
+					} else {
+						for (int i = 0; i < cidadesInalcancaveis.size(); i++) {
+							System.out.println(cidadesInalcancaveis.get(i).getNome());
+						}
+					}
+					break;
+				case 3:
+					System.out.println("Recomendação das cidades e estradas: " + Bfs.percorrerGrafo(grafo));
+					break;
+				case 4:
+					
+					break;
+				case 0:
+					System.out.println("Saindo...");
+					break;
+				default:
+					System.out.println("Opção inválida. Tente novamente.");
+			}
+
+		} while (opcao != 0);
 	}
 
-	// Crie o grafo e adicione vértices e arestas como antes
-	/*
-	 * Vertice vertice1 = new Vertice("Pedro");
-	 * Vertice vertice2 = new Vertice("Joao");
-	 * Vertice vertice3 = new Vertice("Carlos");
-	 * 
-	 * Aresta aresta1 = new Aresta(vertice1, vertice2, 3);
-	 * Aresta aresta2 = new Aresta(vertice2, vertice3, 3);
-	 * Aresta aresta3 = new Aresta(vertice3, vertice1, 3);
-	 * 
-	 * Grafo grafo = new Grafo();
-	 * grafo.addVertice(vertice1);
-	 * grafo.addVertice(vertice2);
-	 * grafo.addVertice(vertice3);
-	 * 
-	 * grafo.addAresta(aresta1);
-	 * grafo.addAresta(aresta2);
-	 * grafo.addAresta(aresta3);
-	 * 
-	 * // Agora, use a classe BFS para verificar a existência de um caminho entre
-	 * // vértices
-	 * Vertice origem = vertice1;
-	 * Vertice destino = vertice3;
-	 * 
-	 * boolean existeCaminho = Bfs.existeCaminho(grafo, origem, destino);
-	 * 
-	 * List<Vertice> cidadesInalcancaveis = Bfs.cidadesInalcancaveis(grafo);
-	 * System.out.println(Bfs.percorrerGrafo(grafo));
-	 * 
-	 * if (cidadesInalcancaveis.isEmpty()) {
-	 * System.out.println("Todas cidades sao alcancaveis");
-	 * } else {
-	 * for (int i = 0; i < cidadesInalcancaveis.size(); i++) {
-	 * System.out.println(cidadesInalcancaveis.get(i).getNome());
-	 * }
-	 * }
-	 * if (existeCaminho) {
-	 * System.out.println("Existe um caminho entre " + origem.getNome() + " e " +
-	 * destino.getNome());
-	 * } else {
-	 * System.out.println("Não existe um caminho entre " + origem.getNome() + " e "
-	 * + destino.getNome());
-	 * }
-	 */
+	
+	public static Vertice encontrarVerticePorNome(List<Vertice> vertices, String nome) {
+		for (Vertice vertice : vertices) {
+			if (vertice.getNome().equals(nome)) {
+				return vertice;
+			}
+		}
+		return null;
+	}
 
 	public static void processarLinha(String linha, Grafo grafo) {
 		Pattern pattern = Pattern.compile("(.+?): (.+)");

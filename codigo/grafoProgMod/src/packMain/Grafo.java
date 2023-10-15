@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Grafo {
 	private List<Vertice> vertices;
 	private List<Aresta> arestas;
+	private Vertice vertice;
 
 	public Grafo() {
 		this.arestas = new ArrayList<>();
@@ -27,6 +28,11 @@ public class Grafo {
 
 	public List<Aresta> getArestas() {
 		return arestas;
+	}
+
+	public Vertice getVertice(String nomeVertice) {
+		
+		return vertice;
 	}
 
 	public Vertice verificarSeVerticeJaExiste(String cidadeVertice) {

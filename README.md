@@ -2,6 +2,9 @@
 # Projeto 2
 Nesse projeto será desenvolvido um progama que, dado uma entrada de cidades e da distância entre suas rodoviarias, fará um grafo para calcular rotas.
 
+Instruções
+Você deve colocar os dados desejados no documento "paises.txt" dentro da pasta src (Não mude o nome nem o local do arquivo, apenas apague os dados e coloque os seus). Depois é so executar o arquivo "Main.java" e verificar o funcionamento. 
+
 ## Alunos integrantes da equipe
 
 * Lucca Oliveira Vasconcelos de Faria
