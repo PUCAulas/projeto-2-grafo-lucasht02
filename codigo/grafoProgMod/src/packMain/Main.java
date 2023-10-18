@@ -69,13 +69,14 @@ public class Main {
 			System.out.println("0. Sair");
 			System.out.print("Escolha uma opção: ");
 			opcao = scanner.nextInt();
-
+			scanner.nextLine();
+			
 			switch (opcao) {
 				case 1:
 					System.out.print("Digite o nome da cidade de origem: ");
-					String nomeOrigem = scanner.next();
+					String nomeOrigem = scanner.nextLine();
 					System.out.print("Digite o nome da cidade de destino: ");
-					String nomeDestino = scanner.next();
+					String nomeDestino = scanner.nextLine();
 
 					Vertice origem = encontrarVerticePorNome(grafo.getVertices(), nomeOrigem);
 					Vertice destino = encontrarVerticePorNome(grafo.getVertices(), nomeDestino);
