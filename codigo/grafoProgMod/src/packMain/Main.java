@@ -36,14 +36,9 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		System.out.println("Vertices");
-		for (Vertice i : grafo.getVertices()) {
-			System.out.println(i.getNome());
-		}
-		System.out.println("\nArestas");
-		for (Aresta i : grafo.getArestas()) {
-			System.out.println("Origem: " + i.getOrigem().getNome() + ", Destino: " + i.getDestino().getNome());
-		}
+		System.out.println("Grafo lido com Sucesso!");
+		
+		
 
 		Vertice rodoviaria = grafo.getVertices().get(0);
 
@@ -102,7 +97,8 @@ public class Main {
 					}
 					break;
 				case 3:
-					System.out.println("Recomendação das cidades e estradas: " + Bfs.percorrerGrafo(grafo));
+					System.out.println("\nObs: Isso pode levar alguns instantes");
+					System.out.println(CaminhoEuler.verificaEuleriano(grafo));
 					break;
 				case 4:
 					System.out.print("Digite o nome da cidade de origem: ");
