@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class CaminhoEuler {
+public class CicloEuler {
     
     private static List<Aresta> encontrarCaminhoEuleriano(Grafo grafo) {
         List<Aresta> caminho = new ArrayList<>();
@@ -67,7 +67,7 @@ return caminho;
             
             
         }
-        caminhoString.append("Nao eh possivel percorrer todas cidades e rodovias em um so caminho!");
+        caminhoString.append("Nao eh possivel encontrar um ciclo euleriano!");
         return caminhoString.toString();
     }
 }

@@ -98,7 +98,7 @@ public class Main {
 					break;
 				case 3:
 					System.out.println("\nObs: Isso pode levar alguns instantes");
-					System.out.println(CaminhoEuler.verificaEuleriano(grafo));
+					System.out.println(CicloEuler.verificaEuleriano(grafo));
 					break;
 				case 4:
 					System.out.print("Digite o nome da cidade de origem: ");
